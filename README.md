@@ -22,8 +22,8 @@ C:\kafka\kafka\bin\windows\kafka-topics.bat ^
 
 Getters → Read values
 Setters → Modify values
-Gettes and setters are mainly used to access and modify private data safely.
-Constructor → Initialize object
+Getters and setters are mainly used to access and modify private data safely.
+
 
 --If kafka shows error already running port default like that run these commands--
  C:\kafka\kafka\bin\windows\kafka-storage.bat random-uuid
