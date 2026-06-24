@@ -1,0 +1,46 @@
+package com.cscorner.helloapp.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
+public class User {
+    
+ @Id
+    @GeneratedValue
+    private Long id;
+
+    private String name;
+    private String email;
+    private String password;   // sensitive data
+    // Getters and Setters are used for encapsulation, allowing controlled access to the fields of the class.  
+    //and getters are for retrieving the value of a field, while setters are for modifying the value of a field.
+
+    public Long getId(){
+        return id;
+    }
+    public void setId(Long id){
+        this.id = id;
+    }
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+    public String getEmail(){
+        return email;
+    }
+    public void setEmail(String email){
+        this.email = email;
+    }
+    public String getPassword(){
+        return password;
+    }
+    public void setPassword(String password){
+        this.password = password;
+    }
+
+    
+}
