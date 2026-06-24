@@ -52,6 +52,3 @@ public class OrderConsumerListener {
     }
 }
 
-Learn and implement manyToMany relation student and courses
-How to invalidate cache
-Create UI in angular for the backend API's written.
