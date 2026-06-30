@@ -390,7 +390,7 @@ mvn clean install -U
 
 Last Updated: June 2026  
 
-**Docker**
+Docker
 
 - The repository includes a multi-stage `Dockerfile` that builds the application with Maven and produces a runtime image that runs the packaged JAR. The runtime image exposes port `8086`.
 
@@ -410,11 +410,13 @@ docker run --rm -p 8086:8086 \
   helloapp:latest
 ```
 
-- Or use Docker Compose (the included `docker-compose.yml`) to build and run the app and related services:
+- Or use Docker Compose with the included `docker-compose.yml` file to build and run the app and related services:
 
 ```bash
 docker compose up --build
 ```
+
+- The `docker-compose.yml` file defines the `app`, `mysql`, `zookeeper`, and `kafka` services used for local development.
 
 - Notes:
   - Inside containers, use `host.docker.internal` to reach services running on the host (Windows/macOS). On Linux, you may need another method (e.g., host network or `--add-host` mapping).
