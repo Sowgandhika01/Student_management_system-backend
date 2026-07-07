@@ -1,7 +1,4 @@
 package com.cscorner.helloapp.service;
-
-import java.util.Collections;
-import java.util.Optional;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

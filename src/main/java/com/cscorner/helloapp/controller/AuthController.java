@@ -1,5 +1,6 @@
 package com.cscorner.helloapp.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cscorner.helloapp.dto.AuthResponse;
 import com.cscorner.helloapp.dto.LoginRequest;
 import com.cscorner.helloapp.dto.SignupRequest;
-import com.cscorner.helloapp.dto.SignupResponse;
 import com.cscorner.helloapp.service.AuthService;
 
 @RestController
@@ -22,9 +22,18 @@ public class AuthController {
         this.authService = authService;
     }
 
+    // @PostMapping("/signup")
+    // public AuthResponse signup(@RequestBody SignupRequest request) {
+    //     return authService.signup(request);
+    // }
     @PostMapping("/signup")
-    public SignupResponse signup(@RequestBody SignupRequest request) {
-        return authService.signup(request);
+    public ResponseEntity<?> signup(@RequestBody SignupRequest dto) {
+        try {
+            return ResponseEntity.ok(authService.signup(dto));
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
     }
 
     @PostMapping("/login")

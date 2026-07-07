@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import com.cscorner.helloapp.dto.AuthResponse;
 import com.cscorner.helloapp.dto.LoginRequest;
 import com.cscorner.helloapp.dto.SignupRequest;
-import com.cscorner.helloapp.dto.SignupResponse;
 import com.cscorner.helloapp.model.AppUser;
 import com.cscorner.helloapp.repository.AuthUserRepository;
 import com.cscorner.helloapp.security.JwtUtil;
@@ -29,7 +28,7 @@ public class AuthService {
         this.adminCode = adminCode;
     }
 
-    public SignupResponse signup(SignupRequest request) {
+    public AuthResponse signup(SignupRequest request) {
         if (request.email == null || request.email.isBlank()) {
             throw new IllegalArgumentException("Email is required");
         }
@@ -61,7 +60,8 @@ public class AuthService {
         user.setRole(role);
 
         AppUser saved = repository.save(user);
-        return new SignupResponse(saved.getId(), saved.getEmail(), saved.getRole());
+        // String token = jwtUtil.generateToken(saved.getEmail(), saved.getRole());
+        return new AuthResponse(null, saved.getEmail(), saved.getRole());
     }
 
     public AuthResponse login(LoginRequest request) {

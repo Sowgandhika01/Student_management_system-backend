@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Email;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
+
 @Entity
 public class Student {
 

@@ -27,6 +27,7 @@ services:
     container_name: helloapp-app
     depends_on:
       - kafka
+      - redis
     ports:
       - 8086:8086
     environment:
@@ -34,8 +35,16 @@ services:
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: Chitti@01
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
       SPRING_JPA_SHOW_SQL: 'true'
+
+  redis:
+    image: redis:latest
+    container_name: helloapp-redis
+    ports:
+      - "6379:6379"
 
 volumes:
   mysql-data:

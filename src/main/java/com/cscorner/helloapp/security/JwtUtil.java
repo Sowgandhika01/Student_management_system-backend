@@ -35,7 +35,7 @@ public class JwtUtil {
                 .signWith(jwtKey, SignatureAlgorithm.HS256)
                 .compact();
     }
-
+//Validate the token and extract the username (email) from it
     public String extractUsername(String token) {
         return getClaims(token).getSubject();
     }
